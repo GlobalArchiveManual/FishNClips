@@ -290,7 +290,7 @@ dbHeader <- dashboardHeader()
 dbHeader$children[[2]]$children <-  tags$a(href='http://mycompanyishere.com',
                                            tags$img(src='https://www.nespmarine.edu.au/sites/default/themes/nespmarine/logo.png',height='60',width='200'))
 
-dbHeader <- dashboardHeader(title = "Fish N Clips",
+dbHeader <- dashboardHeader(title = "Fish & Clips",
                             tags$li(a(href = 'https://marineecology.io/',
                                       img(src = 'https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/MEG-white.png?raw=true',
                                           title = "Marine Ecology Group", height = "50px"),
