@@ -1,2 +1,3 @@
-# FishClips
-A shiny app to explore fish and habitat imagery collected from Western Australia
+# habitatMAPP
+
+https://shinyserver.shiny-app.cloud.edu.au/shiny/habitatMAPPer/
