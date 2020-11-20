@@ -43,15 +43,6 @@ gb.bruv.metadata <- read.csv("data/2014-12_Geographe.Bay_stereoBRUVs_Metadata.cs
 # Load 2020 south west metadata ----
 sw.bruv.metadata <- read.csv("data/2020-06_south-west_stereoBRUVs_metadata.csv")
 
-# Create dataframe for 2014 Geographe Bay BRUV images for plotting ----
-# gb.bruv.image <- gb.bruv.metadata %>%
-#   dplyr::mutate(image=paste0("https://marineecology.io/images/2014-12_BRUVs_Forward/",Sample,".jpg",sep="")) %>%
-#   ga.clean.names() %>%
-#   dplyr::mutate(source = "image") %>%
-#   mutate(height='"365"') %>% mutate(width='"645"') %>%
-#   mutate(popup=paste0('<iframe src=',image,' height=',height,' width=',width,'></iframe>')) %>%
-#   dplyr::select(latitude, longitude, popup, source) %>%
-#   dplyr::mutate(marine.park = "Geographe Bay")
 
 gb.bruv.video <- gb.bruv.metadata %>%
   ga.clean.names() %>%
