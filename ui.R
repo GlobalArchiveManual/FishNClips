@@ -34,7 +34,7 @@ tagList(
         
         tabItem(tabName = "acknowledgements",
                 fluidRow(box(width = 4, status = "primary", height = 800,
-                             imageOutput("logos")
+                             "     ",imageOutput("logos")
                 
                 ),
                 box(width = 8, status = "primary", height = 800, title = "Acknowledgments",
