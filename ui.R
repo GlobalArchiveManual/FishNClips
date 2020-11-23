@@ -33,16 +33,16 @@ tagList(
         
         
         tabItem(tabName = "acknowledgements",
-                fluidRow(box(width = 8, status = "primary", height = 800, title = "Acknowledgments",
-                             "The Marine Biodiversity Hub is funded by the Australian Government's National Environmental Science Program", br(), br(),
-                             "Ningaloo video footage from the baseline survey of deepwater fish in the Ningaloo Marine Park, Commonwealth waters. Funded by the Marine Biodiversity Hub and Parks Australia.", br(),br(),
-                             "Geographe Bay video footage from the National Envrionmental Research Programme, UWA and Curtin",br(),br(),
-                             "South-west corner video footage is contributing to a baseline survey of deepwater fishes and habitats, helping Parks Australia manage this unique part of Australia's marine environment. This project is jointly funded by Parks Australia, the University of Western Australia and the Australian Government's National Environmental Science Program.",br(),br(),
-                             "Icons made by", a("Smashicons", href = "www.flaticon.com/authors/smashicons"), "from", a("Flaticon", href = "www.flaticon.com")),
-                         box(width = 4, status = "primary", height = 800,
+                fluidRow(box(width = 4, status = "primary", height = 800,
                              imageOutput("logos")
                 
-                )
+                ),
+                box(width = 8, status = "primary", height = 800, title = "Acknowledgments",
+                    "The Marine Biodiversity Hub is funded by the Australian Government's National Environmental Science Program", br(), br(),
+                    "Ningaloo video footage from the baseline survey of deepwater fish in the Ningaloo Marine Park, Commonwealth waters. Funded by the Marine Biodiversity Hub and Parks Australia.", br(),br(),
+                    "Geographe Bay video footage from the National Envrionmental Research Programme, UWA and Curtin",br(),br(),
+                    "South-west corner video footage is contributing to a baseline survey of deepwater fishes and habitats, helping Parks Australia manage this unique part of Australia's marine environment. This project is jointly funded by Parks Australia, the University of Western Australia and the Australian Government's National Environmental Science Program.",br(),br(),
+                    "Icons made by", a("Smashicons", href = "www.flaticon.com/authors/smashicons"), "from", a("Flaticon", href = "www.flaticon.com"))
                 )
         )
         
