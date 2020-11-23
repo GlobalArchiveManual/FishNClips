@@ -164,7 +164,7 @@ function(input, output, session) {
   output$logos <- renderImage({
       return(list(
         src = "images/logos-stacked.png",
-        width = 400,
+        width = 350,
         height = 600,
         contentType = "image/png",
         alt = "Face"
