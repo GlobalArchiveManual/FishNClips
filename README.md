@@ -1,3 +1,3 @@
-# habitatMAPP
+# FishNClips
 
-https://shinyserver.shiny-app.cloud.edu.au/shiny/habitatMAPPer/
+https://shinyserver.shiny-app.cloud.edu.au/shiny/FishNClips/
