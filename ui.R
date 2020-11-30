@@ -38,10 +38,11 @@ tagList(
                 
                 ),
                 box(width = 8, status = "primary", height = 800, title = "Acknowledgments",
-                    "The Marine Biodiversity Hub is funded by the Australian Government's National Environmental Science Program", br(), br(),
-                    "Ningaloo video footage from the baseline survey of deepwater fish in the Ningaloo Marine Park, Commonwealth waters. Funded by the Marine Biodiversity Hub and Parks Australia.", br(),br(),
-                    "Geographe Bay video footage from the National Envrionmental Research Programme, UWA and Curtin",br(),br(),
-                    "South-west corner video footage is contributing to a baseline survey of deepwater fishes and habitats, helping Parks Australia manage this unique part of Australia's marine environment. This project is jointly funded by Parks Australia, the University of Western Australia and the Australian Government's National Environmental Science Program.",br(),br(),
+                    "The Marine Biodiversity Hub is funded by the Australian Government's National Environmental Science Program.", br(), br(),
+                    "Ningaloo Marine Park video footage from the benchmark survey of deepwater fish in the Ningaloo Marine Park, Commonwealth waters. Funded by the Marine Biodiversity Hub, Parks Australia, the CSIRO and UWA.", br(),br(),
+                    "Geographe Bay Marine Park video footage from the benchmark survey funded by the National Environmental Research Programme, UWA and Curtin University.",br(),br(),
+                    "South-west Corner video footage is from the benchmark survey funded by by Parks Australia, the University of Western Australia and the Australian Government's National Environmental Science Program's Marine Biodiversity Hub. ",br(),br(),
+                    "These surveys are contributing to a benchmark our understanging of deeper water fishes and habitats, helping Parks Australia manage Australia's marine environment.",br(),br(),
                     "Icons made by", a("Smashicons", href = "www.flaticon.com/authors/smashicons"), "from", a("Flaticon", href = "www.flaticon.com"))
                 )
         )
