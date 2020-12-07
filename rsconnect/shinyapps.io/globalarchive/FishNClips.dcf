@@ -1,0 +1,13 @@
+name: FishNClips
+title: FishNClips
+username:
+account: globalarchive
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3329012
+bundleId: 3926232
+url: https://globalarchive.shinyapps.io/FishNClips/
+when: 1606802624.19564
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: videos
