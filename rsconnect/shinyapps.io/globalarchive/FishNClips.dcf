@@ -5,9 +5,8 @@ account: globalarchive
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3329012
-bundleId: 3957866
+bundleId: 4264652
 url: https://globalarchive.shinyapps.io/FishNClips/
-when: 1607390154.25703
+when: 1614144275.19107
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: videos

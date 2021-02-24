@@ -41,7 +41,8 @@ ning.bruv.metadata <- read.csv("data/2019-08_Ningaloo_metadata.csv") %>%
 gb.bruv.metadata <- read.csv("data/2014-12_Geographe.Bay_stereoBRUVs_Metadata.csv")
 
 # Load 2020 south west metadata ----
-sw.bruv.metadata <- read.csv("data/2020_south-west_stereo-BRUVs.checked.metadata.csv")
+sw.bruv.metadata <- read.csv("data/2020_south-west_stereo-BRUVs.checked.metadata.csv")%>%
+  filter(successful.count%in%c("Yes"))
 
 
 gb.bruv.video <- gb.bruv.metadata %>%
