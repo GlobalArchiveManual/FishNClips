@@ -44,6 +44,16 @@ gb.bruv.metadata <- read.csv("data/2014-12_Geographe.Bay_stereoBRUVs_Metadata.cs
 sw.bruv.metadata <- read.csv("data/2020_south-west_stereo-BRUVs.checked.metadata.csv")%>%
   filter(successful.count%in%c("Yes"))
 
+# Load 2021 abrolhos boss metadata ----
+abro.boss.metadata <- read.csv("data/2021-05_Abrolhos_BOSS.csv") %>%
+  ga.clean.names()%>%
+  mutate(sample = as.character(sample))
+
+# Load 2021 abrolhos bruv metadata ----
+abro.bruv.metadata <- read.csv("data/2021-05_Abrolhos_stereo-BRUVs.csv") %>%
+  ga.clean.names()%>%
+  mutate(sample = as.character(sample))
+
 
 gb.bruv.video <- gb.bruv.metadata %>%
   ga.clean.names() %>%
@@ -77,6 +87,25 @@ ning.bruv.video <- ning.bruv.metadata %>%
 </video>')) %>%
   dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "Ningaloo")
+
+abro.boss.video <- abro.boss.metadata %>%
+  ga.clean.names() %>%
+  dplyr::mutate(source = "habitat.highlights") %>%
+  dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
+  <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/abrolhos/BOSS/',sample,'.mp4?raw=true" type="video/mp4">
+</video>')) %>%
+  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::mutate(marine.park = "Abrolhos")
+
+abro.bruv.video <- abro.bruv.metadata %>%
+  ga.clean.names() %>%
+  dplyr::mutate(source = "habitat.highlights") %>%
+  dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
+  <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/abrolhos/BRUV/',sample,'.mp4?raw=true" type="video/mp4">
+</video>')) %>%
+  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::mutate(marine.park = "Abrolhos")
+
 # 
 # # Create dataframe for 2019 Ningaloo BRUV images for plotting ----
 sw.bruv.image <- sw.bruv.metadata %>%
@@ -104,7 +133,7 @@ models <- read.csv("data/3Dmodels.csv", na.strings=c("NA","NaN", " ","")) %>%
   dplyr::mutate(source = "3d.model")
 
 # Merge data together for leaflet map ----
-dat <- bind_rows(models, gb.bruv.video, sw.bruv.image, fish, ning.bruv.video) # fish, gb.bruv.image, ning.bruv.image, sw.bruv.image, 
+dat <- bind_rows(models, gb.bruv.video, sw.bruv.image, fish, ning.bruv.video,abro.boss.video, abro.bruv.video) # fish, gb.bruv.image, ning.bruv.image, sw.bruv.image, 
 
 # Spatial files ----
 # State marine parks ----

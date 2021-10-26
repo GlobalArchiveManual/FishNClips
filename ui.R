@@ -22,7 +22,8 @@ tagList(
                              
                              selectInput("leaflet.marine.park", "", c("Geographe Marine Park" = "Geographe Bay", # first part is bit user sees
                                                                      "Ningaloo Marine Park" = "Ningaloo",
-                                                                     "South-west Corner Marine Park" = "South-west Corner"))),
+                                                                     "South-west Corner Marine Park" = "South-west Corner",
+                                                                     "Abrolhos Marine Park" = "Abrolhos"))),
                          
                          # box(width = 3, title = "Map display options", status = "primary", solidHeader = TRUE,
                              # checkboxInput("leaflet.cluster", "Cluster fish highlights", TRUE)), # ,checkboxInput("leaflet.zoom", "Animated zoom", TRUE)
