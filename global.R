@@ -60,7 +60,7 @@ gb.bruv.video <- gb.bruv.metadata %>%
   # dplyr::mutate(sample=as.numeric(sample))%>% # for testing only
   # dplyr::filter(sample<61)%>% # for testing only
   dplyr::mutate(sample=as.character(sample))%>% 
-  dplyr::mutate(source = "habitat.highlights") %>%
+  dplyr::mutate(source = "bruv.habitat.highlights") %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
@@ -81,7 +81,7 @@ ning.bruv.image <- ning.bruv.metadata %>%
 
 ning.bruv.video <- ning.bruv.metadata %>%
   ga.clean.names() %>%
-  dplyr::mutate(source = "habitat.highlights") %>%
+  dplyr::mutate(source = "bruv.habitat.highlights") %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/ningaloo/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
@@ -90,7 +90,7 @@ ning.bruv.video <- ning.bruv.metadata %>%
 
 abro.boss.video <- abro.boss.metadata %>%
   ga.clean.names() %>%
-  dplyr::mutate(source = "habitat.highlights") %>%
+  dplyr::mutate(source = "boss.habitat.highlights") %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/abrolhos/BOSS/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
@@ -99,7 +99,7 @@ abro.boss.video <- abro.boss.metadata %>%
 
 abro.bruv.video <- abro.bruv.metadata %>%
   ga.clean.names() %>%
-  dplyr::mutate(source = "habitat.highlights") %>%
+  dplyr::mutate(source = "bruv.habitat.highlights") %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/abrolhos/BRUV/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
@@ -111,7 +111,7 @@ abro.bruv.video <- abro.bruv.metadata %>%
 sw.bruv.image <- sw.bruv.metadata %>%
   ga.clean.names() %>%
   dplyr::mutate(image=paste0("01",sample,"",sep="")) %>% # NEED TO UPDATE THIS
-  dplyr::mutate(source = "habitat.highlights") %>%
+  dplyr::mutate(source = "bruv.habitat.highlights") %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/south-west/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
