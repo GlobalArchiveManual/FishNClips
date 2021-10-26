@@ -20,7 +20,7 @@ tagList(
                 fluidRow(box(width = 12, title = "Select an area to explore", status = "primary", solidHeader = TRUE, 
                              add_busy_spinner(spin = "fading-circle"),
                              
-                             selectInput("leaflet.marine.park", "", c("Geographe Marine Park" = "Geographe Bay",
+                             selectInput("leaflet.marine.park", "", c("Geographe Marine Park" = "Geographe Bay", # first part is bit user sees
                                                                      "Ningaloo Marine Park" = "Ningaloo",
                                                                      "South-west Corner Marine Park" = "South-west Corner"))),
                          
