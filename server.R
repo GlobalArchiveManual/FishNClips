@@ -29,7 +29,8 @@ function(input, output, session) {
     
     map.dat <- map.dat() # call in filtered data
     
-    habitat.highlights.popups <- filter(map.dat, source%in%c("habitat.highlights"))
+    boss.habitat.highlights.popups <- filter(map.dat, source%in%c("boss.habitat.highlights"))
+    bruv.habitat.highlights.popups <- filter(map.dat, source%in%c("bruv.habitat.highlights"))
     fish.highlights.popups <- filter(map.dat, source%in%c("fish.highlights"))
     threed.model.popups <- filter(map.dat, source%in%c("3d.model")) 
     image.popups <- filter(map.dat, source%in%c('image'))
@@ -39,10 +40,10 @@ function(input, output, session) {
     icon.fish <- makeAwesomeIcon(icon = "video", library = "fa", markerColor = "lightred", iconColor = "black")
     icon.models <- makeAwesomeIcon(icon = "laptop", library = "fa", markerColor = "orange", iconColor = "black")
     
-    icon.habitat <- iconList(blue = makeIcon("images/marker_blue.png", iconWidth = 30, iconHeight =40))
-    icon.fish <- iconList(blue = makeIcon("images/marker_red.png", iconWidth = 30, iconHeight =40))
-    icon.models <- iconList(blue = makeIcon("images/marker_green.png", iconWidth = 30, iconHeight =40))
-
+    icon.bruv.habitat <- iconList(blue = makeIcon("images/marker_green.png", iconWidth = 40, iconHeight =40))
+    icon.boss.habitat <- iconList(blue = makeIcon("images/marker_pink.png", iconWidth = 40, iconHeight =40))
+    icon.fish <- iconList(blue = makeIcon("images/marker_yellow.png", iconWidth = 40, iconHeight =40))
+    icon.models <- iconList(blue = makeIcon("images/marker_purple.png", iconWidth = 40, iconHeight =40))
     
     lng1 <- min(map.dat$longitude)
     lat1 <- min(map.dat$latitude)
@@ -73,21 +74,35 @@ function(input, output, session) {
       #                   group = "Habitat imagery",
       #                   popup = image.popups$popup,
       #                   popupOptions=c(closeButton = TRUE,minWidth = 0,maxWidth = 700))%>%
-      # 
       # stereo-BRUV habitat videos
-      addMarkers(data=habitat.highlights.popups,
-                        icon = icon.habitat, 
-                        popup = habitat.highlights.popups$popup,
+      addMarkers(data=bruv.habitat.highlights.popups,
+                        icon = icon.bruv.habitat, 
+                        popup = bruv.habitat.highlights.popups$popup,
                         clusterOptions = markerClusterOptions(iconCreateFunction =
                                                                 JS("
                                           function(cluster) {
                                              return new L.DivIcon({
-                                               html: '<div style=\"background-color:rgba(78,189,220,0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
+                                               html: '<div style=\"background-color:rgba(124, 248, 193, 0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
                                                className: 'marker-cluster'
                                              });
                                            }")),
-                        group="Habitat imagery",
+                        group="BRUV Habitat imagery",
                         popupOptions=c(closeButton = TRUE,minWidth = 0,maxWidth = 700))%>%
+      
+      # BOSS habitat videos
+      addMarkers(data=boss.habitat.highlights.popups,
+                 icon = icon.boss.habitat, 
+                 popup = boss.habitat.highlights.popups$popup,
+                 clusterOptions = markerClusterOptions(iconCreateFunction =
+                                                         JS("
+                                          function(cluster) {
+                                             return new L.DivIcon({
+                                               html: '<div style=\"background-color:rgba(248, 124, 179, 0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
+                                               className: 'marker-cluster'
+                                             });
+                                           }")),
+                 group="BOSS Habitat imagery",
+                 popupOptions=c(closeButton = TRUE,minWidth = 0,maxWidth = 700))%>%
       
       # stereo-BRUV fish videos
       addMarkers(data=fish.highlights.popups,
@@ -97,7 +112,7 @@ function(input, output, session) {
                                                                 JS("
                                           function(cluster) {
                                              return new L.DivIcon({
-                                               html: '<div style=\"background-color:rgba(237,122,79,0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
+                                               html: '<div style=\"background-color:rgba(241, 248, 124,0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
                                                className: 'marker-cluster'
                                              });
                                            }")),
@@ -112,7 +127,7 @@ function(input, output, session) {
                                                                 JS("
                                           function(cluster) {
                                              return new L.DivIcon({
-                                               html: '<div style=\"background-color:rgba(73,220,194,0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
+                                               html: '<div style=\"background-color:rgba(131, 124, 248,0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
                                                className: 'marker-cluster'
                                              });
                                            }")),
@@ -149,7 +164,7 @@ function(input, output, session) {
       addLayersControl(
         baseGroups = c("World Imagery","Open Street Map"),
         overlayGroups = c("Fish highlights",
-                          "Habitat imagery",
+                          "BRUV Habitat imagery","BOSS Habitat imagery",
                           "3D models",
                           "State Marine Parks",
                           "Australian Marine Parks"), options = layersControlOptions(collapsed = FALSE))%>% 

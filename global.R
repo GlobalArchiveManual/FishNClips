@@ -32,6 +32,12 @@ library(sf)
 library(stringr)
 library(tidyr)
 
+# Colours
+#7CF8C1 = green (124, 248, 193)
+#837CF8 = purple (131, 124, 248)
+#F87CB3 = pink (248, 124, 179)
+#F1F87C = yellow (241, 248, 124)
+
 # Bring in data ----
 # Load 2019 ningaloo metadata ----
 ning.bruv.metadata <- read.csv("data/2019-08_Ningaloo_metadata.csv") %>%
@@ -280,20 +286,28 @@ testIcons <- iconList(blue = makeIcon("images/marker_red.png", iconWidth = 24, i
                        green = makeIcon("images/marker_green.png", iconWidth = 24, iconHeight =32),
                        orange = makeIcon("images/marker_blue.png", iconWidth = 24, iconHeight =32))
 
+# icon.bruv.habitat <- iconList(blue = makeIcon("images/marker_green.png", iconWidth = 40, iconHeight =40))
+# icon.boss.habitat <- iconList(blue = makeIcon("images/marker_pink.png", iconWidth = 40, iconHeight =40))
+# icon.fish <- iconList(blue = makeIcon("images/marker_yellow.png", iconWidth = 40, iconHeight =40))
+# icon.models <- iconList(blue = makeIcon("images/marker_purple.png", iconWidth = 40, iconHeight =40))
+
 html_legend <- "<div style='width: auto; height: 45px'> <div style='position: relative; display: inline-block; width: 36px; height: 45px' <img src='images/marker_red.png'> </div> <p style='position: relative; top: 15px; display: inline-block; ' > BRUV </p> </div>
 <div style='width: auto; height: 45px'> <div style='position: relative; display: inline-block; width: 36px; height: 45px' <img src='images/marker_red.png'> </div> <p style='position: relative; top: 15px; display: inline-block; ' > BRUV </p> </div>
 <div style='width: auto; height: 45px'> <div style='position: relative; display: inline-block; width: 36px; height: 45px' <img src='images/marker_red.png'> </div> <p style='position: relative; top: 15px; display: inline-block; ' > BRUV </p> </div>"
 
 html_legend <- "<div style='padding: 10px; padding-bottom: 10px;'><h4 style='padding-top:0; padding-bottom:10px; margin: 0;'> Marker Legend </h4><br/>
 
-<img src='https://github.com/BrookeGibbons/habitatMAPP/blob/master/images/marker_red.png?raw=true'
-style='width:30px;height:35px;'> Fish highlights <br/> 
+<img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_yellow.png?raw=true'
+style='width:30px;height:30px;'> Fish highlights <br/> 
 
-<img src='https://github.com/BrookeGibbons/habitatMAPP/blob/master/images/marker_blue.png?raw=true'
-style='width:30px;height:35px;'> Habitat imagery<br/> 
+<img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_green.png?raw=true'
+style='width:30px;height:30px;'> Habitat imagery (stereo-BRUV)<br/> 
 
-<img src='https://github.com/BrookeGibbons/habitatMAPP/blob/master/images/marker_green.png?raw=true'  
-style='width:30px;height:35px;'> 3D models"
+<img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_pink.png?raw=true'
+style='width:30px;height:30px;'> Habitat imagery (BOSS)<br/> 
+
+<img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_purple.png?raw=true'  
+style='width:30px;height:30px;'> 3D models"
 
 # Legend function ----
 markerLegendHTML <- function(IconSet) {
