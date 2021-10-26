@@ -52,7 +52,8 @@ abro.boss.metadata <- read.csv("data/2021-05_Abrolhos_BOSS.csv") %>%
 # Load 2021 abrolhos bruv metadata ----
 abro.bruv.metadata <- read.csv("data/2021-05_Abrolhos_stereo-BRUVs.csv") %>%
   ga.clean.names()%>%
-  mutate(sample = as.character(sample))
+  mutate(sample = as.character(sample))%>%
+  filter(!is.na(longitude))
 
 
 gb.bruv.video <- gb.bruv.metadata %>%
@@ -133,7 +134,7 @@ models <- read.csv("data/3Dmodels.csv", na.strings=c("NA","NaN", " ","")) %>%
   dplyr::mutate(source = "3d.model")
 
 # Merge data together for leaflet map ----
-dat <- bind_rows(models, gb.bruv.video, sw.bruv.image, fish, ning.bruv.video,abro.boss.video, abro.bruv.video) # fish, gb.bruv.image, ning.bruv.image, sw.bruv.image, 
+dat <- bind_rows(models, gb.bruv.video, sw.bruv.image, fish, ning.bruv.video,abro.boss.video, abro.bruv.video) #fish, gb.bruv.image, ning.bruv.image, sw.bruv.image
 
 # Spatial files ----
 # State marine parks ----
