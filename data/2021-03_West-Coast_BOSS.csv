@@ -92,9 +92,9 @@ Date,Sample,Time.bottom,Time.end,Depth,Raw.hdd.number,Con.hdd.number,Latitude,Lo
 20210310,72,08:24:26,08:31:11,105,RAW3,CON1,-34.0685,114.747,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom light off,Claude,20210322,,,,
 20210310,109,08:39:30,08:46:41,114,RAW3,CON1,-34.0839,114.741,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom light off,Claude,20210322,,,,"2 unknowns, boxfish?"
 20210310,145,08:53:28,09:00:45,121,RAW3,CON1,-34.0891,114.732,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom light off,Claude,20210323,,,,
-20210310,S1,09:35:53,09:43:53,140,RAW3,CON1,34.10277,114.639918,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom and south lights off,Claude,20210323,,,,South light off
-20210310,S2,09:48:43,09:55:53,140,RAW3,CON1,34.10284,114.640335,South Light Off,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom and south lights off,Claude,20210323,,,,"South light off, hard to see nannygai"
-20210310,S3,10:00:35,10:08:03,140,RAW3,CON1,34.102738,114.640238,"Checked Cams, South light Off",No,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom and south lights off,Claude,20210323,,,,south light turns off hitting bottom. check neosebastes sp1. yellow eye and swallowtail after period ends
+20210310,S1,09:35:53,09:43:53,140,RAW3,CON1,-34.10277,114.639918,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom and south lights off,Claude,20210323,,,,South light off
+20210310,S2,09:48:43,09:55:53,140,RAW3,CON1,-34.10284,114.640335,South Light Off,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom and south lights off,Claude,20210323,,,,"South light off, hard to see nannygai"
+20210310,S3,10:00:35,10:08:03,140,RAW3,CON1,-34.102738,114.640238,"Checked Cams, South light Off",No,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,Bottom and south lights off,Claude,20210323,,,,south light turns off hitting bottom. check neosebastes sp1. yellow eye and swallowtail after period ends
 20210310,90,10:40:20,10:47:59,122,RAW3,CON1,-34.1003,114.731,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,,Claude,20210323,,,,
 20210310,22,10:53:32,11:01:41,116,RAW3,CON1,-34.1033,114.745,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,,Claude,20210323,,,,carangidae carangoides sp1 school
 20210310,77,11:05:33,11:13:32,111,RAW3,CON1,-34.0979,114.75,,Yes,Yes,Yes,No-take,NA,West Coast,South-west,Claude,Yes,No,,Claude,20210324,,,,
