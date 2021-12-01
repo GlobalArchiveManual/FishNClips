@@ -78,6 +78,7 @@ function(input, output, session) {
       addMarkers(data=bruv.habitat.highlights.popups,
                         icon = icon.bruv.habitat, 
                         popup = bruv.habitat.highlights.popups$popup,
+                        #label = bruv.habitat.highlights.popups$sample,
                         clusterOptions = markerClusterOptions(iconCreateFunction =
                                                                 JS("
                                           function(cluster) {
@@ -93,6 +94,7 @@ function(input, output, session) {
       addMarkers(data=boss.habitat.highlights.popups,
                  icon = icon.boss.habitat, 
                  popup = boss.habitat.highlights.popups$popup,
+                 #label = boss.habitat.highlights.popups$sample,
                  clusterOptions = markerClusterOptions(iconCreateFunction =
                                                          JS("
                                           function(cluster) {

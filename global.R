@@ -53,7 +53,8 @@ sw.bruv.metadata <- read.csv("data/2020_south-west_stereo-BRUVs.checked.metadata
 # Load 2021 abrolhos boss metadata ----
 abro.boss.metadata <- read.csv("data/2021-05_Abrolhos_BOSS.csv") %>%
   ga.clean.names()%>%
-  mutate(sample = as.character(sample))
+  mutate(sample = as.character(sample))%>%
+  filter(fishnclipz%in%c("Yes"))
 
 # Load 2021 abrolhos bruv metadata ----
 abro.bruv.metadata <- read.csv("data/2021-05_Abrolhos_stereo-BRUVs.csv") %>%
@@ -82,7 +83,7 @@ gb.bruv.video <- gb.bruv.metadata %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>%
+  dplyr::select(latitude, longitude, popup, source, sample) %>%
   dplyr::mutate(marine.park = "Geographe Bay")
 
 # https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/Compilations/test-video-2.mp4?raw=true # this link works
@@ -94,7 +95,7 @@ ning.bruv.image <- ning.bruv.metadata %>%
   dplyr::mutate(source = "image") %>%
   mutate(height='"365"')%>%mutate(width='"645"')%>%
   mutate(popup=paste0('<iframe src=',image,' height=',height,' width=',width,'></iframe>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "Ningaloo")
 
 ning.bruv.video <- ning.bruv.metadata %>%
@@ -103,7 +104,7 @@ ning.bruv.video <- ning.bruv.metadata %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/ningaloo/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "Ningaloo")
 
 abro.boss.video <- abro.boss.metadata %>%
@@ -112,7 +113,7 @@ abro.boss.video <- abro.boss.metadata %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/abrolhos/BOSS/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "Abrolhos")
 
 abro.bruv.video <- abro.bruv.metadata %>%
@@ -121,7 +122,7 @@ abro.bruv.video <- abro.bruv.metadata %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/abrolhos/BRUV/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "Abrolhos")
 
 # 
@@ -133,7 +134,7 @@ sw.bruv.image <- sw.bruv.metadata %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/south-west october/BRUV/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "South-west Corner")
 
 sw.boss.october.image <- swc.boss.october.metadata %>%
@@ -143,7 +144,7 @@ sw.boss.october.image <- swc.boss.october.metadata %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/south-west october/BOSS/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "South-west Corner")
 
 sw.boss.march.image <- swc.boss.march.metadata %>%
@@ -153,7 +154,7 @@ sw.boss.march.image <- swc.boss.march.metadata %>%
   dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
   <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/south-west march/BOSS/',sample,'.mp4?raw=true" type="video/mp4">
 </video>')) %>%
-  dplyr::select(latitude, longitude, popup, source) %>% # ,bruv.video,auv.video,source
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
   dplyr::mutate(marine.park = "South-west Corner")
 
 # Fish hihglights and 3D model links ----
