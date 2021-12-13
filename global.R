@@ -74,6 +74,13 @@ swc.boss.march.metadata <- read.csv("data/2021-03_West-Coast_BOSS.csv") %>%
   mutate(sample = as.character(sample))%>%
   filter(fishnclipz%in%c("Yes"))
 
+#Load 2014/15 montes synthesis metadata
+montes.metadata <- read.csv("data/montebello.synthesis.checked.metadata-fishnclips.csv") %>%
+  ga.clean.names()%>%
+  mutate(sample = as.character(sample))%>%
+  filter(fishnclips%in%c("Yes"))
+
+#Load geo bay bruv metadata
 gb.bruv.video <- gb.bruv.metadata %>%
   ga.clean.names() %>%
   # dplyr::mutate(sample=as.numeric(sample))%>% # for testing only
@@ -87,6 +94,16 @@ gb.bruv.video <- gb.bruv.metadata %>%
   dplyr::mutate(marine.park = "Geographe Bay")
 
 # https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/Compilations/test-video-2.mp4?raw=true # this link works
+
+# Create dataframe for montes synthesis BRUV images for plotting ----
+montes.bruv.video <- montes.metadata %>%
+  ga.clean.names() %>%
+  dplyr::mutate(source = "bruv.habitat.highlights") %>%
+  dplyr::mutate(popup=paste0('<video width="645" autoplay controls>
+  <source src="https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/videos/montes/',sample,'.mp4?raw=true" type="video/mp4">
+</video>')) %>%
+  dplyr::select(latitude, longitude, popup, source, sample) %>% # ,bruv.video,auv.video,source
+  dplyr::mutate(marine.park = "Montebello")
 
 # Create dataframe for 2019 Ningaloo BRUV images for plotting ----
 ning.bruv.image <- ning.bruv.metadata %>%
@@ -172,7 +189,7 @@ models <- read.csv("data/3Dmodels.csv", na.strings=c("NA","NaN", " ","")) %>%
   dplyr::mutate(source = "3d.model")
 
 # Merge data together for leaflet map ----
-dat <- bind_rows(models, gb.bruv.video, sw.bruv.image, fish, ning.bruv.video,abro.boss.video, abro.bruv.video,sw.boss.october.image, sw.boss.march.image ) #fish, gb.bruv.image, ning.bruv.image, sw.bruv.image
+dat <- bind_rows(models, gb.bruv.video, sw.bruv.image, fish, ning.bruv.video,abro.boss.video, abro.bruv.video,sw.boss.october.image, sw.boss.march.image, montes.bruv.video ) #fish, gb.bruv.image, ning.bruv.image, sw.bruv.image
 
 dat$latitude <- jitter(dat$latitude, factor = 0.01)
 dat$longitude <- jitter(dat$longitude, factor = 0.01)
