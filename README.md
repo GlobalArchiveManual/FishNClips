@@ -13,7 +13,7 @@ https://marine-ecology.shinyapps.io/FishNClips/
 - Follow GlobalArchive conventions for naming the metadata.csv and for the column names.
 - Include "fishnclipz" column with "Yes" or "No". TODO Brooke to add this function into the data
 
-### Part 2. Add videos to bucket (Brooke to add to...)
+### Part 2. Add videos to bucket (Brooke/Nik to add to...)
 - Add folder containing the videos, this folder needs to be named with the CampaignID (matching GlobalArchive conventions).
 
 
