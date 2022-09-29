@@ -14,11 +14,13 @@ Colour pallete from [canva colour wheel](https://www.canva.com/colors/color-whee
 - Clone the repo to your local machine
 - Add a folder in the "data/metadata/" folder, name this folder with the shortened Marine Park name e.g. "South-west Corner" or "Ningaloo" NOT "Ningaloo Marine Park"
 - Add this marine park to the UI (in the *leaflet.marine.park* selectInput. The naming needs to be consistent.
-- Add the metadata file to the 
+- Within the folder created above, create two more folders "stereo-BOSS" and "stereo-BRUV" (Check the folders already created in the metadata folder).
+- Add the metadata file to the correct method. 
 
 #### NOTE: Format the metadata correctly
-- Follow GlobalArchive conventions
+- Follow GlobalArchive conventions for naming the metadata.csv and for the column names.
 - Include "fishnclipz" column with "Yes" or "No". TODO Brooke to add this function into the data
 
-### Part 2. Add videos to bucket
-- Brooke to add to
+### Part 2. Add videos to bucket (Brooke to add to...)
+- Add folder containing the videos, this folder needs to be named with the CampaignID (matching GlobalArchive conventions).
+
