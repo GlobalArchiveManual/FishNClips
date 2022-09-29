@@ -19,12 +19,6 @@ commonwealth.mp <- readRDS("data/commonwealth.mp.RDS")
 state.mp <- readRDS("data/state.mp.RDS")
 ngari.mp <- readRDS("data/ngari.mp.RDS")
 
-# Colours
-#7CF8C1 = green (124, 248, 193)
-#837CF8 = purple (131, 124, 248)
-#F87CB3 = pink (248, 124, 179)
-#F1F87C = yellow (241, 248, 124)
-
 state.pal <- colorFactor(c("#bfaf02", # conservation
                            "#7bbc63", # sanctuary = National Park
                            "#fdb930", # recreation
