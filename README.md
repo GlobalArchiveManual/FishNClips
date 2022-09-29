@@ -1,14 +1,6 @@
 # FishNClips
 https://marine-ecology.shinyapps.io/FishNClips/
 
-Markers are from [flaticon](https://www.flaticon.com/free-icon/maps-and-flags_447031?k=1635227226463).
-Colour pallete from [canva colour wheel](https://www.canva.com/colors/color-wheel/)
-
-- #7CF8C1 = green (RGB 124, 248, 193)
-- #837CF8 = purple (RGB 131, 124, 248)
-- #F87CB3 = pink (RGB 248, 124, 179)
-- #F1F87C = yellow (RGB 241, 248, 124)
-
 ## To add more data to FishNClips
 ### Part 1. Add Metadata to FishNClips
 - Clone the repo to your local machine
@@ -24,3 +16,11 @@ Colour pallete from [canva colour wheel](https://www.canva.com/colors/color-whee
 ### Part 2. Add videos to bucket (Brooke to add to...)
 - Add folder containing the videos, this folder needs to be named with the CampaignID (matching GlobalArchive conventions).
 
+
+Markers are from [flaticon](https://www.flaticon.com/free-icon/maps-and-flags_447031?k=1635227226463).
+Colour pallete from [canva colour wheel](https://www.canva.com/colors/color-wheel/)
+
+- #7CF8C1 = green (RGB 124, 248, 193)
+- #837CF8 = purple (RGB 131, 124, 248)
+- #F87CB3 = pink (RGB 248, 124, 179)
+- #F1F87C = yellow (RGB 241, 248, 124)
