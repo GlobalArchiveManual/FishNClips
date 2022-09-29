@@ -17,6 +17,8 @@ https://marine-ecology.shinyapps.io/FishNClips/
 - Add folder containing the videos, this folder needs to be named with the CampaignID (matching GlobalArchive conventions).
 
 
+
+## Styling
 Markers are from [flaticon](https://www.flaticon.com/free-icon/maps-and-flags_447031?k=1635227226463).
 Colour pallete from [canva colour wheel](https://www.canva.com/colors/color-wheel/)
 
