@@ -56,7 +56,7 @@ function(input, output, session) {
     leaflet <- leaflet() %>% 
       addProviderTiles('Esri.WorldImagery', group = "World Imagery") %>%
       addTiles(group = "Open Street Map")%>%
-      addControl(html = html_legend, position = "bottomleft")%>% # markerLegendHTML(IconSet = IconSet)
+      addControl(html = html_legend, position = "bottomleft") %>%
       # flyToBounds(lng1, lat1, lng2, lat2)%>%
       fitBounds(lng1, lat1, lng2, lat2)%>%
       

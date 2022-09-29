@@ -1,7 +1,18 @@
 tagList(
   useShinyjs(),
   dashboardPage(
-    dbHeader,
+    # dbHeader,
+    dashboardHeader(title = "Fish & Clips",
+                    tags$li(a(href = 'https://marineecology.io/',
+                              img(src = 'https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/MEG-white.png?raw=true',
+                                  title = "Marine Ecology Group", height = "50px"),
+                              style = "padding-top:10px; padding-bottom:10px;"),
+                            class = "dropdown"),
+                    tags$li(a(href = 'https://www.nespmarine.edu.au/',
+                              img(src = 'https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/mbh-logo-white-cropped.png?raw=true',
+                                  title = "Marine Biodiversity Hub", height = "50px"),
+                              style = "padding-top:10px; padding-bottom:10px;"),
+                            class = "dropdown")),
     # dashboardHeader(title = "habitatMAPPer"),
     dashboardSidebar(
       sidebarMenu(

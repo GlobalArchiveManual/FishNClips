@@ -5,10 +5,10 @@ account: globalarchive
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3329012
-bundleId: 5189501
+bundleId: 5373611
 url: https://globalarchive.shinyapps.io/FishNClips/
-when: 1635492052.22096
-lastSyncTime: 1635492052.22096
+when: 1639529624.14774
+lastSyncTime: 1639529624.14774
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: videos
+ignoredFiles: LICENSE|scripts for data/01_make example map.R|scripts for data/creating-dongara-data.R|scripts for data/creating.fish.data.R|scripts for data/saved-version-of-popups.R|videos
