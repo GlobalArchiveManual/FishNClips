@@ -1,0 +1,13 @@
+name: FishNClips
+title: FishNClips
+username:
+account: matt-navarro
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7156314
+bundleId: 6350435
+url: https://marine-ecology.shinyapps.io/FishNClips/
+when: 1664434382.32819
+lastSyncTime: 1664434382.32819
+asMultiple: FALSE
+asStatic: FALSE
