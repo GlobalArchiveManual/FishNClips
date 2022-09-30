@@ -36,10 +36,6 @@ function(input, output, session) {
     image.popups <- filter(map.dat, source%in%c('image'))
     
     # Having this in the global.R script breaks now - make icons on server side 
-    icon.habitat <- makeAwesomeIcon(icon = "image", library = "fa")
-    icon.fish <- makeAwesomeIcon(icon = "video", library = "fa", markerColor = "lightred", iconColor = "black")
-    icon.models <- makeAwesomeIcon(icon = "laptop", library = "fa", markerColor = "orange", iconColor = "black")
-    
     icon.bruv.habitat <- iconList(blue = makeIcon("images/marker_green.png", iconWidth = 40, iconHeight =40))
     icon.boss.habitat <- iconList(blue = makeIcon("images/marker_pink.png", iconWidth = 40, iconHeight =40))
     icon.fish <- iconList(blue = makeIcon("images/marker_yellow.png", iconWidth = 40, iconHeight =40))
@@ -50,30 +46,13 @@ function(input, output, session) {
     lng2 <- max(map.dat$longitude)
     lat2 <- max(map.dat$latitude)
     
-    # simulate building
-    # show_loading(elem = "leafletBusy")
-    
     leaflet <- leaflet() %>% 
       addProviderTiles('Esri.WorldImagery', group = "World Imagery") %>%
       addTiles(group = "Open Street Map")%>%
       addControl(html = html_legend, position = "bottomleft") %>%
       # flyToBounds(lng1, lat1, lng2, lat2)%>%
       fitBounds(lng1, lat1, lng2, lat2)%>%
-      
-      # stereo-BRUV Images
-      # addMarkers(data=image.popups,
-      #                   icon = icon.habitat,
-      #                   clusterOptions = markerClusterOptions(iconCreateFunction =
-      #                   JS("
-      #                                     function(cluster) {
-      #                                        return new L.DivIcon({
-      #                                          html: '<div style=\"background-color:rgba(56,169,220,0.9)\"><span>' + cluster.getChildCount() + '</div><span>',
-      #                                          className: 'marker-cluster'
-      #                                        });
-      #                                      }")),
-      #                   group = "Habitat imagery",
-      #                   popup = image.popups$popup,
-      #                   popupOptions=c(closeButton = TRUE,minWidth = 0,maxWidth = 700))%>%
+    
       # stereo-BRUV habitat videos
       addMarkers(data=bruv.habitat.highlights.popups,
                         icon = icon.bruv.habitat, 
