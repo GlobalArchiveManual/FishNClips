@@ -1,3 +1,10 @@
+# TODO list
+# - Add GLpolygons to load the marine park layers faster
+# - Go through the metadata to add a "fishnclipz" column with "Yes" if the video is uploaded to the S3 bucket
+# - Have one map, but make the dropdown update the bounds of the map (will make mapping faster) 
+#   rather than creating a new map each time
+
+
 # Load libraries ----
 library(dplyr)
 library(DT)
