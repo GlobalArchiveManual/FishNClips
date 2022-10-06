@@ -60,3 +60,4 @@ style='width:30px;height:30px;'> Habitat imagery (BOSS)<br/>
 
 <img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_purple.png?raw=true'  
 style='width:30px;height:30px;'> 3D models"
+
