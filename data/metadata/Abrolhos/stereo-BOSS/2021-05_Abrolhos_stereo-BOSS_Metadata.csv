@@ -1,4 +1,4 @@
-Sample,Sampleold,Longitude,Latitude,Date,Time,Location,Site,Status,Depth,Observer,Successful.count,Successful.length,Raw.hdd.number,Con.hdd.number,Chunk.number,Conversion.notes,Type,Video.notes,FishnClipz,Habitat.image.saved,Downwards.image.saved,Vis.in.metres,Habitat.classification ,Maxn.analyst,Maxn.complete.yyyymmdd,Maxn.checker,Length.analyst,Length.complete.date.yyyymmdd,Notes
+Sample,Sampleold,Longitude,Latitude,Date,Time,Location,Site,Status,Depth,Observer,Successful.count,Successful.length,Raw.hdd.number,Con.hdd.number,Chunk.number,Conversion.notes,Type,Video.notes,fishnclips,Habitat.image.saved,Downwards.image.saved,Vis.in.metres,Habitat.classification ,Maxn.analyst,Maxn.complete.yyyymmdd,Maxn.checker,Length.analyst,Length.complete.date.yyyymmdd,Notes
 npz6.34,34,113.549,-28.0563,20210511,10:39:57,NPZ6,npz6.34,No-take,49.1,Claude,Y,Y,RAW1,CON1,1,,MBH,Filmed 42 but should be 34,Yes,Yes,Yes,,,Claude,20210716,,Claude,20210818,wrasse sp
 npz6.19,19,113.5314,-28.0463,20210511,10:55:30,NPZ6,npz6.19,No-take,48.1,Claude,Y,Y,RAW1,CON1,1,,MBH,"all cams on, checked bottom footage",Yes,Yes,Yes,,,Claude,20210716,,Claude,20210818,
 npz6.36,36,113.4739,-28.0765,20210511,11:22:14,NPZ6,npz6.36,No-take,52.9,Claude,Y,Y,RAW1,CON1,1,,MBH,,Yes,Yes,Yes,,,Claude,20210716,,Claude,20210818,tetraodontidae spp same as those in bruvs
@@ -23,8 +23,8 @@ npz6.9,9,113.3687,-28.0486,20210511,15:19:08,NPZ6,npz6.9,No-take,101,Claude,Y,Y,
 npz6.16,16,113.3588,-28.0411,20210511,15:33:16,NPZ6,npz6.16,No-take,123,Claude,Y,Y,RAW1,CON1,3,,MBH,,Yes,Yes,Yes,,,Claude,20210809,,Claude,20210819,no fish
 npz6.23,23,113.3362,-28.041,20210511,15:50:26,NPZ6,npz6.23,No-take,151,Claude,Y,Y,RAW1,CON1,3,,MBH,,Yes,Yes,Yes,,,Claude,20210809,,Claude,20210819,no fish
 npz6.12,12,113.3238,-28.0486,20210511,16:04:48,NPZ6,npz6.12,No-take,159,Claude,Y,Y,RAW1,CON1,3,Resync,MBH,,Yes,Yes,Yes,,,Claude,20210809,,Claude,20210819,"no fish, bulk planktons"
-npz6.42,42,113.5639,-28.1213,20210513,09:33:46,NPZ6,out6.5,Fished,48.5,Claude,Y,Y,RAW1,CON1,1,north cam got switched off. put random videos from end in,MBH,,No,Yes,Yes,,,Claude,20210809,,Claude,20210820,
-npz6.50,50,113.5564,-28.1211,20210513,09:44:13,NPZ6,out6.13,Fished,32,Claude,Y,Y,RAW1,CON1,1,,MBH,,No,Yes,Yes,,,Claude,20210809,,Claude,20210923,
+npz6.42,42,113.5639,-28.1213,20210513,9:33:46,NPZ6,out6.5,Fished,48.5,Claude,Y,Y,RAW1,CON1,1,north cam got switched off. put random videos from end in,MBH,,No,Yes,Yes,,,Claude,20210809,,Claude,20210820,
+npz6.50,50,113.5564,-28.1211,20210513,9:44:13,NPZ6,out6.13,Fished,32,Claude,Y,Y,RAW1,CON1,1,,MBH,,No,Yes,Yes,,,Claude,20210809,,Claude,20210923,
 npz6.45,45,113.5316,-28.106,20210513,10:00:46,NPZ6,out6.8,Fished,50.8,Claude,Y,Y,RAW1,CON1,1,,MBH,,No,Yes,Yes,,,Claude,20210810,,Claude,20210820,
 npz6.46,46,113.5215,-28.1138,20210513,10:12:44,NPZ6,out6.9,Fished,44.7,Claude,Y,Y,RAW1,CON1,1,,MBH,,No,Yes,Yes,,,Claude,20210810,,Claude,20210820,
 npz6.24,24,113.5114,-28.0836,20210513,10:31:21,NPZ6,npz6.24,No-take,49.3,Claude,Y,Y,RAW1,CON1,1,,MBH,"chekced cams, 6 was flooded",No,Yes,Yes,,,Claude,20210810,,Claude,20210820,
@@ -45,9 +45,9 @@ npz6.10,10,113.3498,-28.0798,20210513,14:17:39,NPZ6,npz6.10,No-take,151,Claude,Y
 npz6.35,35,113.2744,-28.0417,20210513,15:22:35,NPZ6,npz6.35,No-take,184,Claude,Y,Y,RAW1,CON1,2,,MBH,"video says skipped drop but dont think it was actually skipped, check",Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,no fish
 npz6.27,27,113.2892,-28.0688,20210513,15:55:35,NPZ6,npz6.27,No-take,186,Claude,Y,Y,RAW1,CON1,2,,MBH,"checked cams, all good, checked 9",Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,no fish
 npz6.4,4,113.2764,-28.0769,20210513,15:48:54,NPZ6,npz6.4,No-take,189,Claude,Y,Y,RAW1,CON1,2,cams not resynced at end of day,MBH,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,no fish
-npz9.24,24,113.2072,-27.1612,20210514,09:29:23,NPZ9,npz9.24,No-take,82.1,Claude,Y,Y,RAW1,CON1,1,,MBH,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,North CAL off.
-npz9.48,48,113.2013,-27.1527,20210514,09:43:21,NPZ9,npz9.48,No-take,84.5,Claude,Y,Y,RAW1,CON1,1,,Legacy,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,
-npz9.46,46,113.1916,-27.149,20210514,09:56:50,NPZ9,np79.46,No-take,83.8,Claude,Y,Y,RAW1,CON1,1,,Legacy,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,
+npz9.24,24,113.2072,-27.1612,20210514,9:29:23,NPZ9,npz9.24,No-take,82.1,Claude,Y,Y,RAW1,CON1,1,,MBH,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,North CAL off.
+npz9.48,48,113.2013,-27.1527,20210514,9:43:21,NPZ9,npz9.48,No-take,84.5,Claude,Y,Y,RAW1,CON1,1,,Legacy,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,
+npz9.46,46,113.1916,-27.149,20210514,9:56:50,NPZ9,np79.46,No-take,83.8,Claude,Y,Y,RAW1,CON1,1,,Legacy,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,
 npz9.19,19,113.2129,-27.1465,20210514,10:15:01,NPZ9,npz9.19,No-take,87,Claude,Y,Y,RAW1,CON1,1,,MBH,checked cams,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,
 npz9.50,50,113.2016,-27.1444,20210514,10:29:15,NPZ9,npz9.50,No-take,91.5,Claude,Y,Y,RAW1,CON1,1,,Legacy,,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,no fish
 npz9.47,47,113.1916,-27.1397,20210514,10:43:23,NPZ9,npz9.47,No-take,83.2,Claude,Y,Y,RAW1,CON1,1,,Legacy,deep water coral,Yes,Yes,Yes,,,Claude,20210811,,Claude,20210923,"some unknowns pretty close to 8m away, not measured"

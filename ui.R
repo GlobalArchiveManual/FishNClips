@@ -1,7 +1,5 @@
-tagList(
-  useShinyjs(),
+tagList(useShinyjs(),
   dashboardPage(
-    # dbHeader,
     dashboardHeader(title = "Fish & Clips",
                     tags$li(a(href = 'https://marineecology.io/',
                               img(src = 'https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/MEG-white.png?raw=true',
@@ -21,6 +19,7 @@ tagList(
       )
     ),
     dashboardBody(
+      tags$head(tags$script(jscode)),    
       tags$head(tags$link(rel = "shortcut icon", href = "favicon.ico")),
       tags$head(tags$style('.selectize-dropdown {z-index: 10000}')),
       tabItems(
@@ -32,7 +31,7 @@ tagList(
                 fluidRow(box(width = 12, title = "Select an area to explore", status = "primary", solidHeader = TRUE, 
                              add_busy_spinner(spin = "fading-circle"),
                              
-                             selectInput("leaflet.marine.park", "", c("Geographe Marine Park" = "Geographe Bay", # first part is bit user sees
+                             selectInput("park", "", c("Geographe Marine Park" = "Geographe Bay", # first part is bit user sees
                                                                      "Ningaloo Marine Park" = "Ningaloo",
                                                                      "South-west Corner Marine Park" = "South-west Corner",
                                                                      "Abrolhos Marine Park" = "Abrolhos",

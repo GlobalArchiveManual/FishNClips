@@ -7,18 +7,20 @@
 
 # Load libraries ----
 library(dplyr)
-library(DT)
-library(forcats)
-library(ggplot2)
-library(GlobalArchive)
+# library(DT)
+# library(forcats)
+# library(ggplot2)
+# library(GlobalArchive)
 library(leaflet)
-library(readr)
+# library(readr)
 library(shiny)
 library(shinybusy)
 library(shinydashboard)
 library(shinyjs)
-library(stringr)
-library(tidyr)
+# library(stringr)
+# library(tidyr)
+
+jscode <- "Shiny.addCustomMessageHandler('mymessage', function(message) {window.location = 'https://marine-ecology.shinyapps.io/FishNClips/';});"
 
 # These files are made in the "create.data.R" script, open and edit there to change the contents of the files
 dat <- readRDS("data/dat.RDS")
@@ -41,7 +43,6 @@ commonwealth.pal <- colorFactor(c("#f6c1d9", # Sanctuary
                                   '#ccc1d6'# Special Purpose
 ), commonwealth.mp$zone)
 
-
 # Make icon for images and videos----
 # html_legend <- "<div style='width: auto; height: 45px'> <div style='position: relative; display: inline-block; width: 36px; height: 45px' <img src='images/marker_red.png'> </div> <p style='position: relative; top: 15px; display: inline-block; ' > BRUV </p> </div>
 # <div style='width: auto; height: 45px'> <div style='position: relative; display: inline-block; width: 36px; height: 45px' <img src='images/marker_red.png'> </div> <p style='position: relative; top: 15px; display: inline-block; ' > BRUV </p> </div>
@@ -50,14 +51,29 @@ commonwealth.pal <- colorFactor(c("#f6c1d9", # Sanctuary
 html_legend <- "<div style='padding: 10px; padding-bottom: 10px;'><h4 style='padding-top:0; padding-bottom:10px; margin: 0;'> Marker Legend </h4><br/>
 
 <img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_yellow.png?raw=true'
-style='width:30px;height:30px;'> Fish highlights <br/> 
+style='width:30px;height:30px;'> Fish highlights <br/>
 
 <img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_green.png?raw=true'
-style='width:30px;height:30px;'> Habitat imagery (stereo-BRUV)<br/> 
+style='width:30px;height:30px;'> Habitat imagery (stereo-BRUV)<br/>
 
 <img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_pink.png?raw=true'
-style='width:30px;height:30px;'> Habitat imagery (BOSS)<br/> 
+style='width:30px;height:30px;'> Habitat imagery (BOSS)<br/>
 
-<img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_purple.png?raw=true'  
+<img src='https://github.com/UWAMEGFisheries/UWAMEGFisheries.github.io/blob/master/images/markers/marker_purple.png?raw=true'
 style='width:30px;height:30px;'> 3D models"
 
+# Dropdown function -----
+create_dropdown <- function(input_name, choices, label) {
+  if (!is.null(input[[input_name]]) && input[[input_name]] %in% choices) {
+    selected <- input[[input_name]]
+  } else {
+    selected <- choices[1]
+  }
+
+  selectInput(
+    inputId = input_name,
+    label = label,
+    choices = choices,
+    selected = selected
+  )
+}
