@@ -1,9 +1,12 @@
 # library(devtools)
 # install_github("UWAMEGFisheries/GlobalArchive") #to check for updates
+library(GlobalArchive)
 library(dplyr)
 library(stringr)
 library(tidyr)
 library(rgdal)
+library(forcats)
+library(readr)
 
 data_dir <- here::here("data")
 
@@ -16,14 +19,38 @@ read_metadata <- function(flnm, data_dir = here::here("data")) {
     ga.clean.names()
 }
 
+clips <- read.delim("data/download.txt", header = FALSE) %>%
+  separate(V1, c("file", "campaignid", "sample"), "/") %>%
+  dplyr::mutate(sample = str_replace_all(.$sample, ".mp4", ""))
+
+unique(clips$sample)
+unique(clips$campaignid) %>% sort()
+
+glimpse(clips)
+
+
 # Bring in metadata ----
 metadata <- list.files(path = data_dir, recursive = T, pattern = "_Metadata.csv", full.names = T) %>% 
   purrr::map_df(~ read_metadata(.)) %>%
   dplyr::mutate(campaignid = stringr::str_replace_all(campaignid, c("C:/GitHub/FishClips/data/" = ""))) %>%
+  dplyr::mutate(sample = str_replace_all(.$sample, c("FHC01" = "FHCO1", "FHC02" = "FHCO2", "FHC03" = "FHCO3"))) %>%
   # dplyr::filter(successful.count %in% "Yes") %>%
   filter(!is.na(longitude))
 
-unique(metadata$campaignid)
+unique(metadata$campaignid)%>% sort()
+
+# Clips missing metadata
+missing.metadata <- anti_join(clips, metadata) %>%
+  filter(!sample %in% "pre-converted")
+
+
+# metadata missing clips
+missing.clips <- anti_join(metadata, clips)
+
+
+metadata <- anti_join(metadata, missing.clips)
+
+
 # Have lost some from using successful.count
 # Claude has been using fishnclipz
 
@@ -60,7 +87,8 @@ fish <- read_csv("data/zone-midpoints.csv", col_types = readr::cols(.default = "
                               " Marine Park, in the ",
                               zone,
                               " Zone.</h4></center>","<br/>",
-                              fish, sep = ""))
+                              fish, sep = "")) %>%
+  filter(!marine.park %in% "South-west Corner")
 
 models <- read_csv("data/3Dmodels.csv", col_types = readr::cols(.default = "c")) %>% 
   dplyr::mutate(source = "3d.model")
