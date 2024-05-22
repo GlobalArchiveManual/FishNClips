@@ -13,8 +13,9 @@ data_dir <- here::here("data")
 read_metadata <- function(flnm, data_dir = here::here("data")) {
   flnm %>%
     readr::read_csv(col_types = readr::cols(.default = "c")) %>%
-    dplyr::mutate(folder.structure = stringr::str_replace_all(flnm, c("C:/GitHub/FishClips/data/metadata/" = "", 
-                                                                      "_Metadata.csv" = ""))) %>%
+    dplyr::mutate(folder.structure = stringr::str_replace_all(flnm, c("G:/FishNClips/data/metadata/" = "",
+                                                                      "_Metadata.csv" = "",
+                                                                      "_metadata.csv" = ""))) %>%
     tidyr::separate(folder.structure, into = c("marine.park", "method", "campaignid"), sep = "/", extra = "drop", fill = "right") %>%
     ga.clean.names()
 }
@@ -29,15 +30,37 @@ unique(clips$campaignid) %>% sort()
 glimpse(clips)
 
 
-# Bring in metadata ----
-metadata <- list.files(path = data_dir, recursive = T, pattern = "_Metadata.csv", full.names = T) %>% 
+# Bring in old metadata ----
+metadata_old <- list.files(path = data_dir, recursive = T, pattern = "_Metadata.csv", full.names = T) %>% 
   purrr::map_df(~ read_metadata(.)) %>%
-  dplyr::mutate(campaignid = stringr::str_replace_all(campaignid, c("C:/GitHub/FishClips/data/" = ""))) %>%
   dplyr::mutate(sample = str_replace_all(.$sample, c("FHC01" = "FHCO1", "FHC02" = "FHCO2", "FHC03" = "FHCO3"))) %>%
   # dplyr::filter(successful.count %in% "Yes") %>%
-  filter(!is.na(longitude))
+  filter(!is.na(longitude)) %>%
+  dplyr::rename(latitude_dd = latitude, longitude_dd = longitude) %>%
+  dplyr::mutate(sample = case_when(
+    campaignid %in% "2020-06_south-west_stereo-BRUVs" ~ str_pad(sample, side = "left", pad = "0", width = 2),
+    .default = sample
+  )) %>%
+  # dplyr::filter(!is.na(sample)) %>%
+  glimpse()
 
-unique(metadata$campaignid)%>% sort()
+metadata_new <- list.files(path = data_dir, recursive = T, pattern = "_metadata.csv", full.names = T) %>% 
+  purrr::map_df(~ read_metadata(.)) %>%
+  # dplyr::filter(successful.count %in% "Yes") %>%
+  filter(!is.na(longitude_dd)) %>%
+  dplyr::mutate(sample = case_when(
+    is.na(sample) & is.na(period) ~ opcode,
+    is.na(sample) & is.na(opcode) ~ period, 
+    .default = sample
+  )) %>%
+  glimpse()
+
+unique(metadata_old$campaignid)%>% sort()
+unique(metadata_new$campaignid)%>% sort()
+
+metadata <- bind_rows(metadata_old, metadata_new) %>%
+  dplyr::select(campaignid, sample, latitude_dd, longitude_dd, marine.park, method) %>%
+  glimpse()
 
 # Clips missing metadata
 missing.metadata <- anti_join(clips, metadata) %>%
@@ -47,12 +70,9 @@ missing.metadata <- anti_join(clips, metadata) %>%
 # metadata missing clips
 missing.clips <- anti_join(metadata, clips)
 
-
+# remove points that are missing clips
+# TODO will need to update the clips download to keep all the ones that are uploaded
 metadata <- anti_join(metadata, missing.clips)
-
-
-# Have lost some from using successful.count
-# Claude has been using fishnclipz
 
 bruv.videos <- metadata %>%
   dplyr::filter(method %in% "stereo-BRUV") %>%
@@ -61,7 +81,7 @@ bruv.videos <- metadata %>%
   dplyr::mutate(popup = paste0('<video width="645" autoplay controls>
   <source src="https://object-store.rc.nectar.org.au/v1/AUTH_00a0b722182f427090a2d462ace79a0a/FishNClips/videos/', campaignid, "/", sample,'.mp4" type="video/mp4">
 </video>')) %>%
-  dplyr::select(marine.park, method, latitude, longitude, popup, source, sample)
+  dplyr::select(marine.park, method, latitude_dd, longitude_dd, popup, source, sample)
 
 boss.videos <- metadata %>%
   dplyr::filter(method %in% "stereo-BOSS") %>%
@@ -70,13 +90,7 @@ boss.videos <- metadata %>%
   dplyr::mutate(popup = paste0('<video width="645" autoplay controls>
   <source src="https://object-store.rc.nectar.org.au/v1/AUTH_00a0b722182f427090a2d462ace79a0a/FishNClips/videos/', campaignid, "/", sample,'.mp4" type="video/mp4">
 </video>')) %>%
-  dplyr::select(marine.park, method, latitude, longitude, popup, source, sample)
-
-# Load 2021 abrolhos boss metadata ----
-# abro.boss.metadata <- read.csv("data/2021-05_Abrolhos_BOSS.csv") %>%
-#   ga.clean.names()%>%
-#   mutate(sample = as.character(sample))%>%
-#   filter(fishnclipz%in%c("Yes"))
+  dplyr::select(marine.park, method, latitude_dd, longitude_dd, popup, source, sample)
 
 # Fish hihglights and 3D model links ----
 fish <- read_csv("data/zone-midpoints.csv", col_types = readr::cols(.default = "c")) %>%
@@ -95,11 +109,11 @@ models <- read_csv("data/3Dmodels.csv", col_types = readr::cols(.default = "c"))
 
 # Merge data together for leaflet map ----
 dat <- bind_rows(models, fish, bruv.videos, boss.videos) %>%
-  mutate(latitude = as.numeric(latitude)) %>%
-  mutate(longitude = as.numeric(longitude))
+  mutate(latitude_dd = as.numeric(latitude_dd)) %>%
+  mutate(longitude_dd = as.numeric(longitude_dd))
 
-dat$latitude <- jitter(dat$latitude, factor = 0.01)
-dat$longitude <- jitter(dat$longitude, factor = 0.01)
+dat$latitude_dd <- jitter(dat$latitude_dd, factor = 0.01)
+dat$longitude_dd <- jitter(dat$longitude_dd, factor = 0.01)
 
 # Spatial files ----
 # State marine parks ----

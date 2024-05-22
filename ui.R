@@ -28,19 +28,20 @@ tagList(useShinyjs(),
                 #tags$head(
                 #  includeCSS("styles.css") # Include custom CSS
                 #),
-                fluidRow(box(width = 12, title = "Select an area to explore", status = "primary", solidHeader = TRUE, 
-                             add_busy_spinner(spin = "fading-circle"),
-                             
-                             selectInput("park", "", c("Geographe Marine Park" = "Geographe Bay", # first part is bit user sees
-                                                                     "Ningaloo Marine Park" = "Ningaloo",
-                                                                     "South-west Corner Marine Park" = "South-west Corner",
-                                                                     "Abrolhos Marine Park" = "Abrolhos",
-                                                                     "Montebello Islands Marine Park" = 'Montebello'))),
+                fluidRow(
+                  # box(width = 12, title = "Select an area to explore", status = "primary", solidHeader = TRUE, 
+                  #            add_busy_spinner(spin = "fading-circle"),
+                  #            
+                  #            selectInput("park", "", c("Geographe Marine Park" = "Geographe Bay", # first part is bit user sees
+                  #                                                    "Ningaloo Marine Park" = "Ningaloo",
+                  #                                                    "South-west Corner Marine Park" = "South-west Corner",
+                  #                                                    "Abrolhos Marine Park" = "Abrolhos",
+                  #                                                    "Montebello Islands Marine Park" = 'Montebello'))),
                          
                          # box(width = 3, title = "Map display options", status = "primary", solidHeader = TRUE,
                              # checkboxInput("leaflet.cluster", "Cluster fish highlights", TRUE)), # ,checkboxInput("leaflet.zoom", "Animated zoom", TRUE)
                          
-                         box(width = 12, leafletOutput("imagery.leaflet", height = 625))
+                         box(width = 12, leafletOutput("imagery.leaflet", height = 800))
                 )
                 ), # End tab item
         

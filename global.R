@@ -23,7 +23,8 @@ library(shinyjs)
 jscode <- "Shiny.addCustomMessageHandler('mymessage', function(message) {window.location = 'https://marine-ecology.shinyapps.io/FishNClips/';});"
 
 # These files are made in the "create.data.R" script, open and edit there to change the contents of the files
-dat <- readRDS("data/dat.RDS")
+dat <- readRDS("data/dat.RDS") %>%
+  dplyr::rename(latitude = latitude_dd, longitude = longitude_dd)
 commonwealth.mp <- readRDS("data/commonwealth.mp.RDS")
 state.mp <- readRDS("data/state.mp.RDS")
 ngari.mp <- readRDS("data/ngari.mp.RDS")

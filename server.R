@@ -41,7 +41,8 @@ function(input, output, session) {
 # Create leaflet explore map ----
   output$imagery.leaflet <- renderLeaflet({
 
-    map.dat <- map.dat() # call in filtered data
+    # map.dat <- map.dat() # call in filtered data
+    map.dat <- dat
 
     boss.habitat.highlights.popups <- filter(map.dat, source %in% c("boss.habitat.highlights"))
     bruv.habitat.highlights.popups <- filter(map.dat, source %in% c("bruv.habitat.highlights"))
@@ -162,9 +163,10 @@ function(input, output, session) {
                           "BRUV Habitat imagery","BOSS Habitat imagery",
                           "3D models",
                           "State Marine Parks",
-                          "Australian Marine Parks"), options = layersControlOptions(collapsed = FALSE))%>%
-      hideGroup("State Marine Parks")%>%
-      hideGroup("Australian Marine Parks")
+                          "Australian Marine Parks"), options = layersControlOptions(collapsed = FALSE)) #%>%
+
+      # hideGroup("Australian Marine Parks") %>%
+      # hideGroup("State Marine Parks")
 
     return(leaflet)
 

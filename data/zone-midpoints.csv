@@ -1,4 +1,4 @@
-marine.park,latitude,longitude,zone,jurisdiction,fish
+marine.park,latitude_dd,longitude_dd,zone,jurisdiction,fish
 Geographe Bay,-33.414,115.299,Special Purpose,commonwealth,"<video width=""645"" autoplay controls <source src=""https://object-store.rc.nectar.org.au/v1/AUTH_00a0b722182f427090a2d462ace79a0a/FishNClips/videos/Compilations/geographebay-special-purpose.mp4"" type=""video/mp4""> </video>"
 Geographe Bay,-33.537,115.279,Multiple Use,commonwealth,"<video width=""645"" autoplay controls <source src=""https://object-store.rc.nectar.org.au/v1/AUTH_00a0b722182f427090a2d462ace79a0a/FishNClips/videos/Compilations/geographe-multiple-use.mp4"" type=""video/mp4""> </video>"
 Geographe Bay,-33.549,115.385,National Park,commonwealth,"<video width=""645"" autoplay controls <source src=""https://object-store.rc.nectar.org.au/v1/AUTH_00a0b722182f427090a2d462ace79a0a/FishNClips/videos/Compilations/geographe-national-park.mp4"" type=""video/mp4""> </video>"
