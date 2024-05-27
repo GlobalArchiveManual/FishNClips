@@ -74,6 +74,8 @@ missing.clips <- anti_join(metadata, clips)
 # TODO will need to update the clips download to keep all the ones that are uploaded
 metadata <- anti_join(metadata, missing.clips)
 
+unique(metadata$campaignid)%>% sort()
+
 bruv.videos <- metadata %>%
   dplyr::filter(method %in% "stereo-BRUV") %>%
   dplyr::mutate(sample = as.character(sample))%>% 
@@ -183,3 +185,37 @@ saveRDS(dat, "data/dat.RDS")
 saveRDS(commonwealth.mp, "data/commonwealth.mp.RDS")
 saveRDS(state.mp, "data/state.mp.RDS")
 saveRDS(ngari.mp, "data/ngari.mp.RDS")
+
+data_for_seamap <- metadata %>%
+  dplyr::mutate(url = paste0("https://object-store.rc.nectar.org.au/v1/AUTH_00a0b722182f427090a2d462ace79a0a/FishNClips/videos/", campaignid, "/", sample, ".mp4")) %>%
+  dplyr::mutate(funding = case_when(
+    campaignid %in% c("2014-12_Geographe.Bay_stereo-BRUVs") ~ "NERP",
+    campaignid %in% c("2014-10_Montebello.sanctuaries_stereo-BRUVs",
+                      "2015-01_Montebello.transect_stereo-BRUVs") ~ "WA Government & NCB & PMCP",
+    campaignid %in% c("2019-08_Ningaloo-Deep_stereo-BRUVs",
+                      "2020-06_south-west_stereo-BRUVs",
+                      "2020-10_south-west_stereo-BOSS",
+                      "2020-10_south-west_stereo-BRUVs",
+                      "2021-03_West-Coast_stereo-BOSS") ~ "NESP D3",
+    campaignid %in% c("2021-05_Abrolhos_stereo-BOSS",
+                      "2021-05_Abrolhos_stereo-BRUVs") ~ "Parks Australia",
+    campaignid %in% c("2021-05_Point Cloates_stereo-BRUVs",
+                      "2021-08_Point Cloates_stereo-BRUVs",
+                      "2022-05_Point Cloates_Naked-BOSS",
+                      "2022-05_Point Cloates_Squid-BOSS",
+                      "2022-05_Point Cloates_stereo-BRUVs") ~ "Parks Australia & OMP Ningaloo",
+    campaignid %in% c("2022-03_Dongara_BOSS") ~ "FRDC",
+    campaignid %in% c("2022-11_Investigator_stereo-BRUVs",
+                      "2022-11_Salisbury_stereo-BRUVs",
+                      "2022-11_Termination_stereo-BOSS",
+                      "2022-11_Termination_stereo-BRUVs") ~ "Parks Australia & OMP Wudjari",
+    campaignid %in% c("2023-03_SwC_BOSS",
+                      "2023-03_SwC_stereo-BRUVs") ~ "Parks Australia",
+    campaignid %in% c("2023-09_Dampier_stereo-BRUVs") ~ "Parks Australia & OMP Murujuga"
+  )) %>%
+  dplyr::filter(!campaignid %in% "2020-03_south-west_stereo-BOSS")
+
+test <- data_for_seamap %>%
+  distinct(campaignid, funding)
+
+write_csv(data_for_seamap, "coordinates-and-videos-for-seamap.csv")
